@@ -38,8 +38,11 @@ export function TaskList() {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
   
   function handleRemoveTask(id: number) {
-
-    tasks.map(task => task.id != id)  
+    tasks.filter((task,index) => {
+      if(task.id == id)
+        tasks.splice(index,1)
+      
+    })
 
     setTasks([...tasks])
     
